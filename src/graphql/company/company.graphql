@@ -1,0 +1,42 @@
+type Company {
+  id: ID,
+  name: String,
+  address: String,
+  phone: String,
+  email: String,
+  skype: String,
+  note: String,
+  status: Int
+}
+
+type Query {
+  companies: [Company],
+  company(id: String!): Company
+}
+
+type Mutation {
+  addCompany(addCompanyDto: AddCompanyDto): Company,
+  updateCompany(updateCompanyDto: UpdateCompanyDto): Company,
+  deleteCompany(companyId: String): Company
+}
+
+input AddCompanyDto {
+  name: String,
+  address: String,
+  phone: String,
+  email: String,
+  skype: String,
+  note: String,
+  status: Int
+}
+
+input UpdateCompanyDto {
+  id: String!,
+  name: String,
+  address: String,
+  phone: String,
+  email: String,
+  skype: String,
+  note: String,
+  status: Int
+}

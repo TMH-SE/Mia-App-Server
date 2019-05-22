@@ -1,0 +1,38 @@
+type Auth {
+  token: String,
+  id: ID
+}
+
+type User {
+  id: ID,
+  name: String,
+  username: String,
+  password: String
+}
+
+type Query {
+  user(id: String!): User,
+  login(loginInfo: LoginInfoDto): Auth
+}
+
+type Mutation {
+  createUser(userInfo: CreateUserInfoDto): User,
+  updatePassword(changePasswordInfo: ChangePasswordInfoDto): Boolean
+}
+
+input CreateUserInfoDto {
+  name: String!,
+  username: String!,
+  password: String!
+}
+
+input LoginInfoDto {
+  username: String!,
+  password: String!
+}
+
+input ChangePasswordInfoDto {
+  id: String!,
+  oldPwd: String!,
+  newPwd: String!
+}
