@@ -13,7 +13,7 @@ export class CompanyResolver {
   }
 
   @Query('company')
-  async company(@Args('companyId') id: string) {
+  async company(@Args('id') id: string) {
     return await this.companyService.findById(id);
   }
 
@@ -23,7 +23,7 @@ export class CompanyResolver {
   }
 
   @Mutation('deleteCompany')
-  async deleteCompany(@Args('id') id: string) {
+  async deleteCompany(@Args('companyId') id: string) {
     return await this.companyService.delete(id);
   }
 
