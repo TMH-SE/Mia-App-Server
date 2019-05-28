@@ -7,6 +7,7 @@
 /* tslint:disable */
 export class AddCompanyDto {
     name?: string;
+    pic?: string;
     address?: string;
     phone?: string;
     email?: string;
@@ -35,6 +36,7 @@ export class LoginInfoDto {
 export class UpdateCompanyDto {
     id: string;
     name?: string;
+    pic?: string;
     address?: string;
     phone?: string;
     email?: string;
@@ -51,6 +53,7 @@ export class Auth {
 export class Company {
     id?: string;
     name?: string;
+    pic?: string;
     address?: string;
     phone?: string;
     email?: string;

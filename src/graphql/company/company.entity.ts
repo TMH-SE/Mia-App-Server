@@ -10,6 +10,9 @@ export class Company {
   name: string
 
   @Column()
+  pic: string
+
+  @Column()
   address: string
 
   @Column()
