@@ -54,10 +54,14 @@ export class UserService {
   async login(loginInfo: LoginInfoDto): Promise<Auth> {
     const { username, password } = loginInfo
     const userFound = await this.findUserByUsn(username)
-    if (userFound !== null && await this.isPasswordMatched(password, userFound.password)){
-      return await { token: await this.generateToken(userFound), id: userFound.id }
+    if (userFound !== null){
+      if (await this.isPasswordMatched(password, userFound.password)) {
+        return await { token: await this.generateToken(userFound), id: userFound.id }
+      } else {
+        throw new UnauthorizedException('Password is incorrect!')
+      }
     } else {
-      throw new UnauthorizedException('Username or password incorrect!')
+      throw new UnauthorizedException('Username does not exist!')
     }
   }
 

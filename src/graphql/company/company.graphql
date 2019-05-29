@@ -7,11 +7,12 @@ type Company {
   email: String,
   skype: String,
   note: String,
-  status: Int
+  status: Int,
+  user: String
 }
 
 type Query {
-  companies: [Company],
+  companies(userId: String!): [Company],
   company(id: String!): Company
 }
 
@@ -29,7 +30,8 @@ input AddCompanyDto {
   email: String,
   skype: String,
   note: String,
-  status: Int
+  status: Int,
+  user: String
 }
 
 input UpdateCompanyDto {
@@ -41,5 +43,6 @@ input UpdateCompanyDto {
   email: String,
   skype: String,
   note: String,
-  status: Int
+  status: Int,
+  user: String
 }

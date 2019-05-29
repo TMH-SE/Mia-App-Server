@@ -30,4 +30,7 @@ export class Company {
   @Column()
   status: number
 
+  @Column()
+  user: string
+
 }

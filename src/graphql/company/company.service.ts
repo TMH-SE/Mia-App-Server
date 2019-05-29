@@ -10,8 +10,8 @@ export class CompanyService {
     private readonly companyRepository: MongoRepository<Company>,
   ) {}
 
-  async findAll(): Promise<Company[]> {
-    return await this.companyRepository.find();
+  async findAll(userId: string): Promise<Company[]> {
+    return await this.companyRepository.find({ user: userId });
   }
 
   async findById(id: string): Promise<Company> {

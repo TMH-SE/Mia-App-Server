@@ -14,6 +14,7 @@ export class AddCompanyDto {
     skype?: string;
     note?: string;
     status?: number;
+    user?: string;
 }
 
 export class ChangePasswordInfoDto {
@@ -43,6 +44,7 @@ export class UpdateCompanyDto {
     skype?: string;
     note?: string;
     status?: number;
+    user?: string;
 }
 
 export class Auth {
@@ -60,6 +62,7 @@ export class Company {
     skype?: string;
     note?: string;
     status?: number;
+    user?: string;
 }
 
 export abstract class IMutation {
@@ -75,7 +78,7 @@ export abstract class IMutation {
 }
 
 export abstract class IQuery {
-    abstract companies(): Company[] | Promise<Company[]>;
+    abstract companies(userId: string): Company[] | Promise<Company[]>;
 
     abstract company(id: string): Company | Promise<Company>;
 

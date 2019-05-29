@@ -8,8 +8,8 @@ export class CompanyResolver {
   constructor(private readonly companyService: CompanyService) {}
 
   @Query('companies')
-  async companies() {
-    return await this.companyService.findAll();
+  async companies(@Args('userId') userId: string) {
+    return await this.companyService.findAll(userId);
   }
 
   @Query('company')
