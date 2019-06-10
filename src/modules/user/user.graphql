@@ -1,17 +1,17 @@
 type Auth {
   token: String,
-  id: ID
+  id: String
 }
 
 type User {
-  id: ID,
+  _id: String,
   name: String,
   username: String,
   password: String
 }
 
 type Query {
-  user(id: String!): User,
+  user(userId: String!): User,
   login(loginInfo: LoginInfoDto): Auth
 }
 
@@ -32,7 +32,7 @@ input LoginInfoDto {
 }
 
 input ChangePasswordInfoDto {
-  id: String!,
+  userId: String!,
   oldPwd: String!,
   newPwd: String!
 }

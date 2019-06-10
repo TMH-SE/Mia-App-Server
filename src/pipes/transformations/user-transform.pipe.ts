@@ -1,7 +1,7 @@
 import { ArgumentMetadata, Injectable, PipeTransform } from '@nestjs/common';
 const bcrypt = require('bcrypt')
 @Injectable()
-export class UserPipe implements PipeTransform {
+export class UserTransFormPipe implements PipeTransform {
   async encryptPwd (pwd) {
     const cryptSalt = await bcrypt.genSalt(6)
     return await bcrypt.hash(pwd, cryptSalt)

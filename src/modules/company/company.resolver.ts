@@ -1,7 +1,10 @@
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
 import { CompanyService } from './company.service';
-import { async } from 'rxjs/internal/scheduler/async';
-import { AddCompanyDto, UpdateCompanyDto } from 'src/graphql.schema';
+import { AddCompanyDto } from './dto/add-company.dto';
+import { UpdateCompanyDto } from './dto/update-company.dto';
+// import { UsePipes } from '@nestjs/common';
+// import { JoiValidationPipe } from 'src/pipes/validations/joi-validation.pipe';
+// import { AddCompanySchema } from 'src/pipes/validations/schema/company.schema';
 
 @Resolver('Company')
 export class CompanyResolver {
@@ -17,6 +20,7 @@ export class CompanyResolver {
     return await this.companyService.findById(id);
   }
 
+  // @UsePipes(new JoiValidationPipe(AddCompanySchema))
   @Mutation('addCompany')
   async addCompany(@Args('addCompanyDto') addCompanyDto: AddCompanyDto) {
     return await this.companyService.create(addCompanyDto);
