@@ -11,6 +11,8 @@ import { TaskModule } from './modules/task/task.module';
 import { UserModule } from './modules/user/user.module';
 // import { APP_FILTER } from '@nestjs/core';
 // import { TotalExceptionFilter } from './commons/filters/total-exception.filter';
+import { AuthModule } from './modules/commons/auth/auth.module';
+import { AppGuardModule } from './guards/app-guard.module';
 
 @Module({
   imports: [
@@ -26,6 +28,8 @@ import { UserModule } from './modules/user/user.module';
     CompanyModule,
     TaskModule,
     UserModule,
+    AuthModule,
+    AppGuardModule,
   ],
   controllers: [AppController],
   providers: [

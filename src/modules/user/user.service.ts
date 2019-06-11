@@ -42,9 +42,11 @@ export class UserService {
     return await jwt.sign({
       userId: user._id,
       userUsn: user.username,
-    }, SECRET_CODE, {
-        expiresIn: EXPIRED_TOKEN,
-      });
+    },
+    SECRET_CODE,
+    {
+      expiresIn: EXPIRED_TOKEN,
+    });
   }
 
   async createUser(user: CreateUserDto): Promise<User> {
@@ -84,5 +86,4 @@ export class UserService {
     }
     return false;
   }
-
 }

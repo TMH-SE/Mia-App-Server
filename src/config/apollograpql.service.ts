@@ -1,12 +1,13 @@
-import { Injectable } from "@nestjs/common";
-import { GqlOptionsFactory, GqlModuleOptions } from "@nestjs/graphql"
+import { Injectable } from '@nestjs/common';
+import { GqlOptionsFactory, GqlModuleOptions } from '@nestjs/graphql';
 
 @Injectable()
 export class ApolloGraphqlService implements GqlOptionsFactory {
-  createGqlOptions () : GqlModuleOptions {
+  createGqlOptions(): GqlModuleOptions {
     return {
       typePaths: ['./**/*.graphql'],
-      installSubscriptionHandlers: true
-    }
+      installSubscriptionHandlers: true,
+      context: ({ req }) => ({ req }),
+    };
   }
 }
